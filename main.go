@@ -1,31 +1,13 @@
-// main.go
-package gotest
+// gotest
+package main
 
 import (
 	"fmt"
+	"gotest/teststruct"
 )
 
-var i = 2
-
-// MyTestStruct test
-type MyTestStruct struct {
-	X int
-	Y int
-}
-
-// SetValues testing
-func (m *MyTestStruct) SetValues(x, y int) {
-	m.X = x
-	m.Y = y
-}
-
-// Testing is a test
-func (m MyTestStruct) Testing() int {
-	return m.X + m.Y
-}
-
 func myTestFunc(x, y int) int {
-	return x + y + i
+	return x + y
 }
 
 func myTestFunc2(x, y int) (int, string) {
@@ -80,11 +62,11 @@ func main() {
 		fmt.Println("something else")
 	}
 
-	myTest := MyTestStruct{}
+	myTest := teststruct.MyTestStruct{}
 	myTest.SetValues(1, 2)
 	fmt.Println(myTest.Testing())
 
-	fmt.Println("Struct test", MyTestStruct{1, 2})
+	fmt.Println("Struct test", teststruct.MyTestStruct{1, 2})
 
 	i := 1
 	p := &i
