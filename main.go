@@ -64,7 +64,8 @@ func main() {
 
 	myTest := teststruct.MyTestStruct{}
 	myTest.SetValues(1, 2)
-	fmt.Println(myTest.Testing())
+	fmt.Println("Add values:", myTest.Add())
+	fmt.Println("Multiple values:", myTest.Multiply())
 
 	fmt.Println("Struct test", teststruct.MyTestStruct{1, 2})
 
