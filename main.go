@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"gotest/interfaces"
 	"gotest/teststruct"
 )
 
@@ -21,6 +22,10 @@ func myTestNamedFunc() (x, y int) {
 
 	// naked return
 	return
+}
+
+func myTestInterfaceUse(m interfaces.MyTest) {
+	fmt.Println("Test interface:", m.MyOutput())
 }
 
 func main() {
@@ -75,4 +80,11 @@ func main() {
 
 	fmt.Println("i:", i, "*p:", *p, "p:", p)
 	fmt.Println("j:", j)
+
+	myTestInterfaceUse(myTest)
+
+	/* This will _not_ work, as MyTestStruct2 does not implement the MyOutput method!
+	myTest2 := teststruct.MyTestStruct2{}
+	myTestInterfaceUse(myTest2)
+	*/
 }
